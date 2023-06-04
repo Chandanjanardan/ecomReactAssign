@@ -1,0 +1,32 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  float: right;
+  box-shadow: 5px 15px 15px gray;
+  padding: 15px;
+  margin: 15px;
+  font-size: 20px;
+  text-align: center;
+  height: 350px;
+  justify-content: space-between;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  background-color: white;
+}
+.card-container{
+  background-color: #364f6b;
+}
+.card img{
+  width: 300px;
+  height: 70%;
+}
+
+.card:hover{
+  transform: scale(1.1);
+}
+.card-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
