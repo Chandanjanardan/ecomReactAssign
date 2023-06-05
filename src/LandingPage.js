@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import PrimarySearchAppBar from './Header';
 import "./css/landingpage.css"
 
 // use effect
@@ -8,16 +9,19 @@ import "./css/landingpage.css"
 function LandingPage() {
     const [counter, setCounter] = useState(0)
     const [product, setProduct] = useState([])
-    let a = 10
+    function handleCounter(){
+        setCounter(counter+1)
+    }
+    console.log(counter)
     // console.log("i am redering in landing page componennt")
     // https://dummyjson.com/products 
     useEffect(() => {
-        console.log("I am hello from useeffect")
+        
         const apicaling = async () => {
             try {
                 let response = await axios.get("https://dummyjson.com/products")
-                console.log(response.data.products)
                 setProduct(response.data.products)
+                console.log(response.data)
 
             } catch (error) {
                 console.log(error)
@@ -27,14 +31,11 @@ function LandingPage() {
         // let body= document.querySelector(".header");
         // console.log(body)
     }, [])
-    // console.log(" I am below useeffect")
-    // case 1: when dependency array is empty it will run only once
-    // case 2: when dependency array have some stte or props
-    // then the state and props changes your useeffect trigger that many time
-    console.log("This are the products", product)
+   
     return (
         <div className='header'>
-            {/* <button onClick={() => setCounter(counter + 1)}>+{counter}</button> */}
+            <PrimarySearchAppBar counter={counter}/>
+           
             
 
 
@@ -51,8 +52,9 @@ function LandingPage() {
                             <div>
                             <div>{element.title}</div>
                             <div>{element.brand}</div>
+                            <div className='price'> Price:{element.price}</div>
                             <div className='card-footer'>
-                                <button className='addtocart'>Add to cart</button>
+                                <button className='addtocart' onClick={handleCounter}>Add to cart</button>
                                 <button className='viewinfo'>View Info</button>
                             </div>
                             </div>

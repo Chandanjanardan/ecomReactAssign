@@ -30,3 +30,23 @@
   justify-content: center;
   gap: 10px;
 }
+.addtocart{
+  background-color: #22d1ee;
+  width: 100px;
+  height: 35px;
+  border-radius: 9px;
+  border: none;
+  color: white;
+}
+
+.viewinfo{
+  background-color: #0e153a;
+  width: 100px;
+  height: 35px;
+  border-radius: 9px;
+  border: none;
+  color: white;
+}
+.price{
+  color: #581b98;
+}
